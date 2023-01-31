@@ -1,1 +1,1 @@
-# table-compnent
+# table-component
