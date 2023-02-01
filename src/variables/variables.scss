@@ -1,0 +1,157 @@
+//@import '../libs/web-toolkit/scss/variables';
+//@import '../libs/web-toolkit/scss/bootstrap/variables';
+
+
+// colors
+$border-color: #f5f5f5;
+$table-header-color: #F7F7F6;
+$selected-row-color: #efedfd;
+$table-row-border-bottom-color: #E1E1E1;
+$input-selection-color: #614bc2;
+$color-red: #e60e0e;
+$color-red-dark: #c91432;
+$color-red-dark-2: #a10822;
+$color-red-dark-3: #db0011;
+$color-orange: #ec4d33;
+$color-light-orage: #f56049;
+$color-dark-orange: #c05e4e;
+$color-dusty-orange: #ee624b;
+$color-light-pink: #e76e84;
+$color-dark: #333333;
+$color-brownish-grey: #6d6a6a;
+$color-grey: #999999;
+$color-grey-95: #f2f2f2;
+$color-dark-grey: #5f5f5f;
+$color-dark-grey-2: #7f7f7f;
+$color-light-grey-1: #f5f5f5;
+$color-light-grey-2: #fafafa;
+$color-light-grey-3: #e5e5e5;
+$color-dark-grey-4: #e1e1e1;
+$color-silver: #cccccc;
+$color-white: #ffffff;
+$color-green: #1cc54e;
+$color-green-light: #f0faf0;
+$color-green-dark: #00ca3730;
+$color-quartz-light: #f0f0fa;
+$color-turquoise-blue: #00adc6;
+$color-turquoise-blue-dark: #0f8ea1;
+$color-moonstone: #469cbe;
+$color-cobalt-blue: #00008f;
+$color-blue: #2425aa;
+$color-dark-blue: #000072;
+$color-azure: #3032c1;
+$color-sapphire-blue: #3e6483;
+$color-sky-blue: #deebff;
+$color-green-medium: #27be46;
+$color-black: #000000;
+$color-eclipse: #404040;
+$color-new-grey: #767676;
+$color-sapphire-blue-light: rgba(69, 106, 134, 0.3);
+$color-dark-smoke: rgba(0, 0, 0, 0.25);
+$gray-dark-high-color: rgba(145, 144, 172, 0.3);
+$gray-dark-light-color: rgba(145, 144, 172, 0.1);
+$red-dark-color: rgb(228, 124, 123);
+$red-medium-color: rgba(228, 124, 123, 0.1);
+$red-light-color: rgba(228, 124, 123, 0.3);
+$color-blue-light: rgba(145, 144, 172, 1);
+$color-dark-light-smoke: rgba(0, 0, 0, 0.15);
+$color-green-extra-light: rgb(232, 249, 237);
+
+// fonts
+$publicoheadline: 'PublicoHeadline', Arial, sans-serif;
+$sourcesanspro: 'Source Sans Pro', Arial, sans-serif;
+$avenirheavy : 'Avenir Heavy', Arial, sans-serif;
+
+// layout
+$max-width: 114rem;
+$max-width-main: 120rem;
+
+//images
+$thumbnail-size: 104px;
+$medium-thumbnail-size: 50px;
+
+// Spacing
+$padding-01: 0.2rem;
+$padding-02: 0.4rem;
+$padding-03: 0.8rem;
+$padding-04: 1.2rem;
+$padding-05: 1.6rem;
+$padding-06: 2.4rem;
+$padding-07: 3.2rem;
+$padding-08: 4rem;
+$padding-09: 4.8rem;
+
+$margin-01: 1.6rem;
+$margin-02: 2.4rem;
+$margin-03: 3.2rem;
+$margin-04: 4.8rem;
+$margin-05: 6.4rem;
+$margin-06: 9.6rem;
+$margin-07: 16rem;
+
+// responsive sizes
+$axa-large: 1200px;
+$axa-l-medium: 992px;
+$axa-medium: 767px;
+$axa-medium-second: 750px;
+$axa-smedium: 680px;
+$axa-xsmedium: 576px;
+$axa-small: 480px;
+$axa-xsmall: 320px;
+
+$navigation-width: 300px;
+$top-height: 70px;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Source Sans Pro, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}

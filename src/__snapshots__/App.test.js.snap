@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<table
+  class="base-table"
+>
+  <thead>
+    <tr>
+      <th />
+      <th
+        scope="col"
+      >
+        Operator
+      </th>
+      <th
+        scope="col"
+      >
+        Headset Display
+      </th>
+      <th
+        scope="col"
+      >
+        3G Availability
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="enable-table-hover"
+  >
+    <tr
+      class=""
+    >
+      <td>
+        <input
+          class="input-selection"
+          type="checkbox"
+        />
+      </td>
+      <td>
+        *Celcom Axiata (LTE)
+      </td>
+      <td>
+        CELCOM / My Celcom / 502 19
+      </td>
+      <td>
+        Yes
+      </td>
+    </tr>
+    <tr
+      class=""
+    >
+      <td>
+        <input
+          class="input-selection"
+          type="checkbox"
+        />
+      </td>
+      <td>
+        *DiGi Telecom (LTE)
+      </td>
+      <td>
+        DiGi 1800 / DiGi / MYMY18
+      </td>
+      <td>
+        Yes
+      </td>
+    </tr>
+    <tr
+      class=""
+    >
+      <td>
+        <input
+          class="input-selection"
+          type="checkbox"
+        />
+      </td>
+      <td>
+        Maxis (LTE)
+      </td>
+      <td>
+        U Mobile / MYS 18 / MY 18
+      </td>
+      <td>
+        Yes
+      </td>
+    </tr>
+    <tr
+      class=""
+    >
+      <td>
+        <input
+          class="input-selection"
+          type="checkbox"
+        />
+      </td>
+      <td>
+        U Mobile (LTE)
+      </td>
+      <td>
+        U Mobile / MYS 18 / MY 18
+      </td>
+      <td>
+        Yes
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
