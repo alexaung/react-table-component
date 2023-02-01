@@ -1,22 +1,51 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { jsxDecorator } from 'storybook-addon-jsx';
-import Table from '.';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { jsxDecorator } from "storybook-addon-jsx";
+import Table from ".";
 
-const headerLabels = [
-  'Claim Number',
-  'Date of Admission',
-  'Date of Discharge',
-  'Clinic/Hospital'
+const columns = [
+  {
+    title: "Operator",
+    dataIndex: "operator",
+    key: "operator",
+  },
+  {
+    title: "Headset Display",
+    dataIndex: "headset_display",
+    key: "headset_display",
+  },
+  {
+    title: "3G Availability",
+    dataIndex: "3g_availability",
+    key: "availability",
+  },
 ];
+
 const dataRows = [
-  ['CBGDC21000386-00', '12-03-2021', '26-03-2021', 'PARKWAY EAST'],
-  ['CBGDC21000386-00', '13-03-2021', '25-03-2021', 'RESTRUCTURED HOSPITAL'],
-  ['CBGDC21000386-00', '14-03-2021', '24-03-2021', 'PARKWAY EAST'],
-  ['CBGDC21000386-00', '15-03-2021', '23-03-2021', 'SUNWAY'],
-  ['CBGDC21000386-00', '16-03-2021', '22-03-2021', 'KEPPAL'],
-  ['CBGDC21000386-00', '17-03-2021', '21-03-2021', 'PARKWAY EAST'],
-  ['CBGDC21000386-00', '18-03-2021', '20-03-2021', 'PARKWAY EAST']
+  {
+    id: 1,
+    operator: "*Celcom Axiata (LTE)",
+    headset_display: "CELCOM / My Celcom / 502 19",
+    availability: "Yes",
+  },
+  {
+    id: 2,
+    operator: "*DiGi Telecom (LTE)",
+    headset_display: "DiGi 1800 / DiGi / MYMY18",
+    availability: "Yes",
+  },
+  {
+    id: 3,
+    operator: "Maxis (LTE)",
+    headset_display: "U Mobile / MYS 18 / MY 18",
+    availability: "Yes",
+  },
+  {
+    id: 4,
+    operator: "U Mobile (LTE)",
+    headset_display: "U Mobile / MYS 18 / MY 18",
+    availability: "Yes",
+  },
 ];
 
 function Footer() {
@@ -35,101 +64,97 @@ function Header() {
   );
 }
 
-storiesOf('Table|Default', module)
+storiesOf("Table|Default", module)
   .addDecorator(jsxDecorator)
   .addParameters({
     info: {
-      text: 'Table documentation'
-    }
+      text: "Table documentation",
+    },
   })
-  .add('Basic Table', () => (
-    <div style={{ margin: '30px' }}>
+  .add("Basic Table", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
       />
     </div>
   ))
-  .add('Single selection', () => (
-    <div style={{ margin: '30px' }}>
+  .add("Single selection", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
         mode="single"
-        onChange={data => {
-          console.log('Row data', data);
+        onChange={(data) => {
+          console.log("Row data", data);
         }}
       />
     </div>
   ))
-  .add('Multiple selection', () => (
-    <div style={{ margin: '30px' }}>
+  .add("Multiple selection", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
         mode="multiple"
-        onChange={data => {
-          console.log('Row data', data);
+        onChange={(data) => {
+          console.log("Row data", data);
         }}
       />
     </div>
   ))
-  .add('Limit rows', () => (
-    <div style={{ margin: '30px' }}>
+  .add("Limit rows", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
         maxRowsToDisplay={3}
-        onChange={data => {
-          console.log('Row data', data);
+        onChange={(data) => {
+          console.log("Row data", data);
         }}
       />
     </div>
   ))
-  .add('With footer', () => (
-    <div style={{ margin: '30px' }}>
+  .add("With footer", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
         footer={<Footer />}
       />
     </div>
   ))
-  .add('With header', () => (
-    <div style={{ margin: '30px' }}>
+  .add("With header", () => (
+    <div style={{ margin: "30px" }}>
       <Table
         header={<Header />}
-        headerLabels={headerLabels}
+        columns={columns}
         dataRows={dataRows}
         footer={<Footer />}
       />
     </div>
   ))
-  .add('Disable toggle', () => (
-    <div style={{ margin: '30px' }}>
+  .add("Disable toggle", () => (
+    <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Hospitalisation/ Day Surgery Claims"
-        headerLabels={headerLabels}
+        title="If YES, Choose Related Operator"
+        columns={columns}
         dataRows={dataRows}
         mode="single"
         enableToggleMode={false}
-        onChange={data => {
-          console.log('Row data', data);
+        onChange={(data) => {
+          console.log("Row data", data);
         }}
       />
     </div>
   ))
-  .add('Compact view', () => (
-    <div style={{ margin: '30px', width: '320px' }}>
-      <Table
-        title="Test header"
-        headerLabels={headerLabels}
-        dataRows={dataRows}
-      />
+  .add("Compact view", () => (
+    <div style={{ margin: "30px", width: "320px" }}>
+      <Table title="Test header" columns={columns} dataRows={dataRows} />
     </div>
   ));

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface TableProps {
   title?: string;
-  headerLabels?: string[];
+  columns?: string[];
   dataRows?: string[][];
   mode?: string;
   maxRowsToDisplay?: number;

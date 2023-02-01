@@ -8,7 +8,7 @@ const styles = classNames.bind(TableStyles);
 const modes = ["SINGLE", "MULTIPLE"];
 
 function TableBody(props) {
-  const { headerLabels, dataRows, mode, onChange, enableToggleMode } = props;
+  const { columns, dataRows, mode, onChange, enableToggleMode } = props;
   const [updatedMode, setUpdatedMode] = useState("NONE");
   const [selectionMode, setSelectionMode] = useState("");
   const [selectedRowsKeys, setSelectedRowsKeys] = useState([]);
@@ -31,10 +31,17 @@ function TableBody(props) {
     return rowData;
   }
 
+  function convertKeyData(rowData) {
+    const keyData = Object.entries(rowData)
+      .map((entry) => entry.join())
+      .join();
+    const getKey = generateKey(keyData);
+    return getKey;
+  }
+
   function getMultipleSelectionToggleData(key, rowData) {
     const data = selectedRowsData.filter(
-      (selectedRowData) =>
-        !selectedRowData.every((selectedData) => rowData.includes(selectedData))
+      (selectedRowsData) => convertKeyData(selectedRowsData) !== key
     );
     setSelectedRowsData(data);
     setSelectedRowsKeys(
@@ -46,12 +53,13 @@ function TableBody(props) {
   }
 
   function getMultipleSelectionData(key, rowData) {
+    let data;
     if (enableToggleMode && selectedRowsKeys.includes(key)) {
       return getMultipleSelectionToggleData(key, rowData);
     }
 
     if (!selectedRowsKeys.includes(key)) {
-      const data = [...selectedRowsData, rowData];
+      data = [...selectedRowsData, rowData];
       setSelectedRowsData(data);
       setSelectedRowsKeys([...selectedRowsKeys, key]);
       return data;
@@ -75,7 +83,7 @@ function TableBody(props) {
     <tbody className={styles(selectionMode)}>
       {Array.isArray(dataRows) &&
         dataRows.map((rowData, index) => {
-          const getKey = generateKey("tr", rowData.join(), index);
+          const getKey = convertKeyData(rowData);
           const rowSelectedCls = selectedRowsKeys.includes(getKey)
             ? "selected-row-highlight"
             : "";
@@ -85,17 +93,27 @@ function TableBody(props) {
               onClick={() => handleClick(getKey, rowData)}
               className={styles(rowSelectedCls)}
             >
-              {mode === "single" && (
+              {updatedMode === "SINGLE" && (
                 <td>
-                  <input type="radio" className="input-selection" checked={selectedRowsKeys.includes(getKey)} onChange={e => {}}/>
+                  <input
+                    type="radio"
+                    className="input-selection"
+                    checked={selectedRowsKeys.includes(getKey)}
+                    onChange={(e) => {}}
+                  />
                 </td>
               )}
-              {mode === "multiple" && (
+              {updatedMode === "MULTIPLE" && (
                 <td>
-                  <input type="checkbox" className="input-selection" checked={selectedRowsKeys.includes(getKey)} onChange={e => {}}/>
+                  <input
+                    type="checkbox"
+                    className="input-selection"
+                    checked={selectedRowsKeys.includes(getKey)}
+                    onChange={(e) => {}}
+                  />
                 </td>
               )}
-              {<TableData headerLabels={headerLabels} rowData={rowData} index={index} />}
+              {<TableData columns={columns} rowData={rowData} />}
             </tr>
           );
         })}

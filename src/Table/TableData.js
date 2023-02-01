@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { generateKey } from "./../util/utils";
 
 function TableData(props) {
-  const { headerLabels, rowData, index } = props;
+  const { columns, rowData } = props;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -11,17 +11,17 @@ function TableData(props) {
 
   if (isMobile) {
     return (
-      <td key={generateKey("td", rowData.join(), index)}>
-        {Array.isArray(rowData) &&
-          rowData.map((columnData, index) => (
+      <td key={generateKey("td", Object.entries(rowData).map(entry => entry.join()).join())}>
+        {Array.isArray(columns) &&
+          columns.map((column, index) => (
             <p key={index}>
-              {headerLabels[index]}: {columnData}
+              {column.title}: {rowData[column.key]}
             </p>
           ))}
       </td>
     );
   } else {
-    return rowData.map((cell, cellIndex) => <td key={cellIndex}>{cell}</td>);
+    return columns.map((column, columnIndex) => <td key={columnIndex}>{rowData[column.key]}</td>);
   }
 }
 
