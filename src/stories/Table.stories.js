@@ -1,7 +1,6 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
 import { jsxDecorator } from "storybook-addon-jsx";
-import Table from ".";
+import Table from "../Table";
 
 const columns = [
   {
@@ -64,14 +63,20 @@ function Header() {
   );
 }
 
-storiesOf("Table|Default", module)
-  .addDecorator(jsxDecorator)
-  .addParameters({
-    info: {
-      text: "Table documentation",
-    },
-  })
-  .add("Basic Table", () => (
+export default {
+  title: 'Components/Table',
+  component: Table,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    //backgroundColor: { control: 'color' },
+  },
+  decorators: [jsxDecorator],
+
+};
+
+export const BasicTable = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -79,8 +84,12 @@ storiesOf("Table|Default", module)
         dataRows={dataRows}
       />
     </div>
-  ))
-  .add("Single selection", () => (
+  );
+};
+
+export const SingleSelection = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -92,8 +101,12 @@ storiesOf("Table|Default", module)
         }}
       />
     </div>
-  ))
-  .add("Multiple selection", () => (
+  );
+};
+
+export const MultipleSelection = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -105,8 +118,12 @@ storiesOf("Table|Default", module)
         }}
       />
     </div>
-  ))
-  .add("Limit rows", () => (
+  );
+};
+
+export const LimitRows = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -118,8 +135,12 @@ storiesOf("Table|Default", module)
         }}
       />
     </div>
-  ))
-  .add("With footer", () => (
+  );
+};
+
+export const WithFooter = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -128,8 +149,12 @@ storiesOf("Table|Default", module)
         footer={<Footer />}
       />
     </div>
-  ))
-  .add("With header", () => (
+  );
+};
+
+export const WithHeader = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         header={<Header />}
@@ -138,8 +163,12 @@ storiesOf("Table|Default", module)
         footer={<Footer />}
       />
     </div>
-  ))
-  .add("Disable toggle", () => (
+  );
+};
+
+export const DisableToggle = () => {
+  
+  return (
     <div style={{ margin: "30px" }}>
       <Table
         title="If YES, Choose Related Operator"
@@ -152,9 +181,18 @@ storiesOf("Table|Default", module)
         }}
       />
     </div>
-  ))
-  .add("Compact view", () => (
+  );
+};
+
+export const CompactView = () => {
+  
+  return (
     <div style={{ margin: "30px", width: "320px" }}>
       <Table title="Test header" columns={columns} dataRows={dataRows} />
     </div>
-  ));
+  );
+};
+
+
+
+
