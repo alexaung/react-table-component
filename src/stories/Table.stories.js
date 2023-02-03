@@ -44,21 +44,24 @@ const data = [
   },
 ];
 
-function Footer() {
-  return (
-    <div>
-      <span>Hi this is footer</span>
-    </div>
-  );
-}
+// function Footer() {
+//   return (
+//     <div>
+//       <span>Hi this is footer</span>
+//     </div>
+//   );
+// }
 
-function Header() {
-  return (
-    <div>
-      <span>Hi this is header</span>
-    </div>
-  );
-}
+const Footer = ({ text }) => <div><span>{text}</span></div>;
+const Header = ({ text }) => <div><span>{text}</span></div>;
+
+// function Header() {
+//   return (
+//     <div>
+//       <span>Hi this is header</span>
+//     </div>
+//   );
+// }
 
 export default {
   title: 'Components/Table',
@@ -135,29 +138,29 @@ export const LimitRows = () => {
   );
 };
 
-export const WithFooter = () => {
+// export const WithFooter = () => {
   
-  return (
-    <div style={{ margin: "30px" }}>
-      <Table
-        title="Operator List"
-        columns={columns}
-        data={data}
-        footer={<Footer />}
-      />
-    </div>
-  );
-};
+//   return (
+//     <div style={{ margin: "30px" }}>
+//       <Table
+//         title="Operator List"
+//         columns={columns}
+//         data={data}
+//         footer={<><Footer text="My footer" /></>}
+//       />
+//     </div>
+//   );
+// };
 
 export const WithHeader = () => {
   
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        header={<Header />}
+        header={<><Header text="My header" /></>}
         columns={columns}
         data={data}
-        footer={<Footer />}
+        footer={<><Footer text="My footer" /></>}
       />
     </div>
   );

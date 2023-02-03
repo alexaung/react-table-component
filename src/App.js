@@ -1,8 +1,7 @@
 import "./App.css";
 import Table from "./Table/Table";
 import useLocalStorage from "use-local-storage";
-//import data from './data/operator.json'
-import data from "./data/contract.json";
+import data from "./data/operator.json";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -10,48 +9,18 @@ function App() {
     "theme",
     defaultDark ? "dark" : "light"
   );
-
-  // operator header
-
-  // const columns = [
-  //   {
-  //     title: "Operator",
-  //     field: "operator",
-  //   },
-  //   {
-  //     title: "Headset Display",
-  //     field: "headset_display",
-  //   },
-  //   {
-  //     title: "3G Availability",
-  //     field: "availability",
-  //   },
-  // ];
-
   const columns = [
     {
-      title: "Name",
-      field: "name",
-      width: '10%',
-      sortable: true
+      title: "Operator",
+      field: "operator",
     },
     {
-      title: "Mobile",
-      field: "mobile",
-      width: '50%',
-      sortable: true
+      title: "Headset Display",
+      field: "headset_display",
     },
     {
-      title: "Expiry",
-      field: "expiry",
-      width: '20%',
-      sortable: true
-    },
-    {
-      title: "Penalty",
-      field: "penalty",
-      width: '20%',
-      sortable: true
+      title: "3G Availability",
+      field: "availability",
     },
   ];
 
@@ -70,10 +39,10 @@ function App() {
           display: "block",
           alignItems: "center",
           justifyContent: "center",
-          margin: "10px",
+          margin: "5px",
         }}
       >
-        <div style={{ margin: "50px" }}>
+        <div style={{ marginTop: "50px", marginBottom: "50px" }}>
           <Table
             columns={columns}
             data={data}

@@ -13,6 +13,9 @@ TableBody.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       field: PropTypes.string.isRequired,
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      sortable: PropTypes.bool,
     })
   ).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -127,7 +130,7 @@ function TableBody(props) {
                   />
                 </td>
               )}
-              {<TableData columns={columns} rowData={rowData} />}
+              {<TableData columns={columns} rowData={rowData} mode={mode} />}
             </tr>
           );
         })}

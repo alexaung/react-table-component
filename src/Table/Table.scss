@@ -41,7 +41,6 @@ $xlwidth: 992px;
           text-align: left;
           letter-spacing: 0px;
           padding: 24px;
-          white-space: nowrap;
         }
       }
     }
@@ -96,7 +95,6 @@ $xlwidth: 992px;
           text-align: left;
           letter-spacing: 0px;
           padding: 24px;
-          white-space: nowrap;
         }
       }
     }
@@ -143,7 +141,15 @@ $xlwidth: 992px;
     letter-spacing: 0;
     thead {
       tr {
-        display: none;
+        background-color: var(--table-header-color);
+        cursor: pointer;
+        th {
+          font-family: $avenirheavy;
+          font-size: 16px;
+          text-align: left;
+          letter-spacing: 0px;
+          padding: 24px;
+        }
       }
     }
     tbody {
