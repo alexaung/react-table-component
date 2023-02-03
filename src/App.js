@@ -1,6 +1,8 @@
 import "./App.css";
 import Table from "./Table/Table";
 import useLocalStorage from "use-local-storage";
+//import data from './data/operator.json'
+import data from "./data/contract.json";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -9,48 +11,47 @@ function App() {
     defaultDark ? "dark" : "light"
   );
 
+  // operator header
+
+  // const columns = [
+  //   {
+  //     title: "Operator",
+  //     field: "operator",
+  //   },
+  //   {
+  //     title: "Headset Display",
+  //     field: "headset_display",
+  //   },
+  //   {
+  //     title: "3G Availability",
+  //     field: "availability",
+  //   },
+  // ];
+
   const columns = [
     {
-      title: "Operator",
-      dataIndex: "operator",
-      key: "operator",
+      title: "Name",
+      field: "name",
+      width: '10%',
+      sortable: true
     },
     {
-      title: "Headset Display",
-      dataIndex: "headset_display",
-      key: "headset_display",
+      title: "Mobile",
+      field: "mobile",
+      width: '50%',
+      sortable: true
     },
     {
-      title: "3G Availability",
-      dataIndex: "3g_availability",
-      key: "availability",
-    },
-  ];
-
-  const dataRows = [
-    {
-      id: 1,
-      operator: "*Celcom Axiata (LTE)",
-      headset_display: "CELCOM / My Celcom / 502 19",
-      availability: "Yes",
+      title: "Expiry",
+      field: "expiry",
+      width: '20%',
+      sortable: true
     },
     {
-      id: 2,
-      operator: "*DiGi Telecom (LTE)",
-      headset_display: "DiGi 1800 / DiGi / MYMY18",
-      availability: "Yes",
-    },
-    {
-      id: 3,
-      operator: "Maxis (LTE)",
-      headset_display: "U Mobile / MYS 18 / MY 18",
-      availability: "Yes",
-    },
-    {
-      id: 4,
-      operator: "U Mobile (LTE)",
-      headset_display: "U Mobile / MYS 18 / MY 18",
-      availability: "Yes",
+      title: "Penalty",
+      field: "penalty",
+      width: '20%',
+      sortable: true
     },
   ];
 
@@ -74,10 +75,8 @@ function App() {
       >
         <div style={{ margin: "50px" }}>
           <Table
-            //title="Operator List"
-
             columns={columns}
-            dataRows={dataRows}
+            data={data}
             mode="multiple"
             onChange={(data) => {
               console.log("Selected data", data);

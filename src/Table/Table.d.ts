@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface TableProps {
   title?: string;
   columns?: string[];
-  dataRows?: string[][];
+  data?: string[][];
   mode?: string;
   maxRowsToDisplay?: number;
   enableToggleMode?: boolean;
@@ -13,7 +13,7 @@ export interface TableProps {
   [key: string]: any;
 }
 
-interface TableState {}
+interface TableState { }
 
 declare class Table extends React.Component<TableProps, TableState> {
   render(): JSX.Element;

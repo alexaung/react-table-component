@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { generateKey } from "./../util/utils";
 import TableStyles from "./Table.scss";
 import classNames from "classnames/bind";
@@ -7,8 +8,21 @@ import TableData from "./TableData";
 const styles = classNames.bind(TableStyles);
 const modes = ["SINGLE", "MULTIPLE"];
 
+TableBody.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  mode: PropTypes.oneOf(["single", "multiple"]),
+  enableToggleMode: PropTypes.bool,
+  onChange: PropTypes.func,
+};
+
 function TableBody(props) {
-  const { columns, dataRows, mode, onChange, enableToggleMode } = props;
+  const { columns, data, mode, enableToggleMode, onChange } = props;
   const [updatedMode, setUpdatedMode] = useState("NONE");
   const [selectionMode, setSelectionMode] = useState("");
   const [selectedRowsKeys, setSelectedRowsKeys] = useState([]);
@@ -81,8 +95,8 @@ function TableBody(props) {
 
   return (
     <tbody className={styles(selectionMode)}>
-      {Array.isArray(dataRows) &&
-        dataRows.map((rowData, index) => {
+      {Array.isArray(data) &&
+        data.map((rowData, index) => {
           const getKey = convertKeyData(rowData);
           const rowSelectedCls = selectedRowsKeys.includes(getKey)
             ? "selected-row-highlight"

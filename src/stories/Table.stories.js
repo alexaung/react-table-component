@@ -5,22 +5,19 @@ import Table from "../Table";
 const columns = [
   {
     title: "Operator",
-    dataIndex: "operator",
-    key: "operator",
+    field: "operator",
   },
   {
     title: "Headset Display",
-    dataIndex: "headset_display",
-    key: "headset_display",
+    field: "headset_display",
   },
   {
     title: "3G Availability",
-    dataIndex: "3g_availability",
-    key: "availability",
+    field: "availability",
   },
 ];
 
-const dataRows = [
+const data = [
   {
     id: 1,
     operator: "*Celcom Axiata (LTE)",
@@ -79,9 +76,9 @@ export const BasicTable = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
       />
     </div>
   );
@@ -92,9 +89,9 @@ export const SingleSelection = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         mode="single"
         onChange={(data) => {
           console.log("Row data", data);
@@ -109,9 +106,9 @@ export const MultipleSelection = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         mode="multiple"
         onChange={(data) => {
           console.log("Row data", data);
@@ -126,9 +123,9 @@ export const LimitRows = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         maxRowsToDisplay={3}
         onChange={(data) => {
           console.log("Row data", data);
@@ -143,9 +140,9 @@ export const WithFooter = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         footer={<Footer />}
       />
     </div>
@@ -159,7 +156,7 @@ export const WithHeader = () => {
       <Table
         header={<Header />}
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         footer={<Footer />}
       />
     </div>
@@ -171,9 +168,9 @@ export const DisableToggle = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        title="If YES, Choose Related Operator"
+        title="Operator List"
         columns={columns}
-        dataRows={dataRows}
+        data={data}
         mode="single"
         enableToggleMode={false}
         onChange={(data) => {
@@ -188,7 +185,7 @@ export const CompactView = () => {
   
   return (
     <div style={{ margin: "30px", width: "320px" }}>
-      <Table title="Test header" columns={columns} dataRows={dataRows} />
+      <Table title="Test header" columns={columns} data={data} />
     </div>
   );
 };

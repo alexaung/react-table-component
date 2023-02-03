@@ -9,7 +9,7 @@ describe("<Table/>", () => {
     "Date of Discharge",
     "Clinic/Hospital",
   ];
-  const dataRows = [
+  const data = [
     ["test-id", "12-03-2021", "26-03-2021", "PARKWAY EAST"],
     ["CBGDC21000386-00", "13-03-2021", "25-03-2021", "RESTRUCTURED HOSPITAL"],
     ["CBGDC21000386-00", "14-03-2021", "24-03-2021", "PARKWAY EAST"],
@@ -22,12 +22,7 @@ describe("<Table/>", () => {
 
   it("Should render basic component", () => {
     const { container } = render(
-      <Table
-        columns={columns}
-        dataRows={dataRows}
-        mode="single"
-        title="test title"
-      />
+      <Table columns={columns} data={data} mode="single" title="test title" />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -36,8 +31,8 @@ describe("<Table/>", () => {
     const onChange = jest.fn();
     const { getByText } = render(
       <Table
-      columns={columns}
-        dataRows={dataRows}
+        columns={columns}
+        data={data}
         mode="single"
         title="test title"
         onChange={onChange}

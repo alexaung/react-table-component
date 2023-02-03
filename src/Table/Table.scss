@@ -12,7 +12,6 @@ $xlwidth: 992px;
   .table-title {
     margin-bottom: 10px;
     font-size: 20px;
-    //color: $color-dark;
     line-height: 20px;
     letter-spacing: normal;
     font-weight: 600;
@@ -23,7 +22,7 @@ $xlwidth: 992px;
     border-radius: 16px;
     box-shadow: var(
       --table-box-shadow
-    ); //0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    ); 
   }
 
   .base-table {
@@ -104,7 +103,7 @@ $xlwidth: 992px;
     tbody {
       tr {
         &:not(:last-child) {
-          border-bottom: 1px solid $table-row-border-bottom-color;
+          border-bottom: 1px solid var(--table-row-border-bottom-color);
         }
         td {
           font-family: $avenirbook;
@@ -150,7 +149,7 @@ $xlwidth: 992px;
     tbody {
       tr {
         &:not(:last-child) {
-          //margin-bottom: 8px;
+          margin-bottom: 8px;
           border-bottom: 1px solid #e1e1e1;
         }
         td {
@@ -167,46 +166,22 @@ $xlwidth: 992px;
 
 .enable-table-hover {
   tr:hover {
-    background-color: $color-sky-blue;
+    background-color: var(--text-secondary);
     cursor: pointer;
   }
 }
 
 .selected-row-highlight {
-  background-color: $selected-row-color;
+  background-color: var(--selected-row-color);
 }
 
 .input-selection {
+  cursor: pointer;
   padding: 10px;
-  accent-color: $input-selection-color;
+  accent-color: var(--input-selection-color);
   width: 24px;
   height: 24px;
 }
-
-// .ascending {
-//   background-image: url(./../../src/assets/icons/arrow-up-circle.svg);
-//   background-size: 24px 24px;
-// }
-
-// .descending {
-//   background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'><path fill='%23614bc2' d='M11 6v8l-3.5-3.5l-1.42 1.42L12 17.84l5.92-5.92l-1.42-1.42L13 14V6h-2m1 16A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10Z'/></svg>");
-//   background-size: 24px 24px;
-// }
-
-// .default {
-//   background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'><path fill='currentColor' d='M17.45 17.55L12 23l-5.45-5.45l1.41-1.41L11 19.17V4.83L7.96 7.86L6.55 6.45L12 1l5.45 5.45l-1.41 1.41L13 4.83v14.34l3.04-3.03l1.41 1.41Z'/></svg>");
-//   background-size: 24px 24px;
-// }
-
-// .ascending,
-// .descending,
-// .default {
-//   cursor: pointer;
-//   background-repeat: no-repeat;
-//   background-position: center right;
-//   padding: 20px;
-//   margin: 20px;
-// }
 
 .ascending,
 .descending {

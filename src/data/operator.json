@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "operator": "*Celcom Axiata (LTE)",
+    "headset_display": "CELCOM / My Celcom / 502 19",
+    "availability": "Yes"
+  },
+  {
+    "id": 2,
+    "operator": "*DiGi Telecom (LTE)",
+    "headset_display": "DiGi 1800 / DiGi / MYMY18",
+    "availability": "Yes"
+  },
+  {
+    "id": 3,
+    "operator": "Maxis (LTE)",
+    "headset_display": "U Mobile / MYS 18 / MY 18",
+    "availability": "Yes"
+  },
+  {
+    "id": 4,
+    "operator": "U Mobile (LTE)",
+    "headset_display": "U Mobile / MYS 18 / MY 18",
+    "availability": "Yes"
+  }
+]

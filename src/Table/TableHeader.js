@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { generateKey } from "./../util/utils";
 import {
   ArrowDownCircle,
@@ -6,12 +7,27 @@ import {
   ArrowUpDown,
 } from "./../assets/icons/svg_icons";
 
+TableHeader.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  mode: PropTypes.oneOf(["single", "multiple"]),
+  sort: PropTypes.shape({
+    column: PropTypes.string,
+    direction: PropTypes.string.isRequired,
+  }).isRequired,
+  onSort: PropTypes.func,
+};
+
 function TableHeader(props) {
   const { columns, mode, sort, onSort } = props;
 
   const handleClick = (column) => {
-    if (column.key) {
-      onSort(column.key);
+    if (column.field) {
+      onSort(column.field);
     }
   };
 
@@ -24,23 +40,25 @@ function TableHeader(props) {
           columns.map((column, index) => (
             <th
               scope="col"
-              key={generateKey("th", column.key, index)}
+              key={generateKey("th", column.field, index)}
+              style={{ width: column.width }}
               onClick={() => handleClick(column)}
             >
               <div style={{ display: "flex" }}>
                 <div>{column.title}</div>
                 <div
                   className={
-                    column.key === sort.column && sort.direction === "asc"
+                    column.field === sort.column && sort.direction === "asc"
                       ? "ascending"
-                      : column.key === sort.column && sort.direction === "desc"
+                      : column.field === sort.column &&
+                        sort.direction === "desc"
                       ? "descending"
                       : "default"
                   }
                 >
-                  {column.key === sort.column && sort.direction === "asc" ? (
+                  {column.field === sort.column && sort.direction === "asc" ? (
                     <ArrowUpCircle />
-                  ) : column.key === sort.column &&
+                  ) : column.field === sort.column &&
                     sort.direction === "desc" ? (
                     <ArrowDownCircle />
                   ) : (

@@ -1,17 +1,45 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import TableStyles from "./Table.scss";
 import classNames from "classnames/bind";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 
 const styles = classNames.bind(TableStyles);
-const ROW_HEIGHT = 56;
+const ROW_HEIGHT = 100;
+
+Table.propTypes = {
+  /** The title of the table, displayed at the top of the component. */
+  title: PropTypes.string,
+  /** An array of objects, each representing a column in the table. Each object must contain a title property, 
+   * which is used to display the header for the column, and a field property, which is used to retrieve the data for the column from the data objects. */
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  /** An array of data objects that are displayed in the table body. */
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /** Specifies the selection mode of the table. Can be either single or multiple. */
+  mode: PropTypes.oneOf(["single", "multiple"]),
+  /** The maximum number of rows to display in the table body. If the number of rows exceeds this value, a scrollbar will be displayed to allow users to access the additional rows. */
+  maxRowsToDisplay: PropTypes.number,
+  /** A boolean that determines whether the selection mode of the table can be changed by the user. */
+  enableToggleMode: PropTypes.bool,
+  /** A string or component to display at the bottom of the table. */
+  footer: PropTypes.string,
+  /** A string or component to display at the top of the table. */
+  header: PropTypes.string,
+  /** A callback function that is triggered when the selected rows in the table are changed. */
+  onChange: PropTypes.func,
+};
 
 function Table(props) {
   const {
     title,
     columns,
-    dataRows,
+    data,
     mode,
     maxRowsToDisplay,
     enableToggleMode = true,
@@ -19,6 +47,7 @@ function Table(props) {
     header,
     onChange,
   } = props;
+
   const [maxHeight, setMaxHeight] = useState(getHeight(maxRowsToDisplay));
 
   function getHeight(maxRows = 5) {
@@ -42,7 +71,7 @@ function Table(props) {
     setSort({ column, direction });
   };
 
-  const sortedData = dataRows.sort((a, b) => {
+  const sortedData = data.sort((a, b) => {
     let result = 0;
     if (sort.column) {
       if (a[sort.column] < b[sort.column]) {
@@ -53,8 +82,6 @@ function Table(props) {
     }
     return result;
   });
-
-  //console.table(sortedData);
 
   return (
     <div>
@@ -73,10 +100,10 @@ function Table(props) {
           {Array.isArray(sortedData) && (
             <TableBody
               columns={columns}
-              dataRows={sortedData}
+              data={sortedData}
               mode={mode}
-              onChange={onChange}
               enableToggleMode={Boolean(enableToggleMode)}
+              onChange={onChange}
             />
           )}
         </table>
