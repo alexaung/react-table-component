@@ -11,12 +11,14 @@ const ROW_HEIGHT = 100;
 Table.propTypes = {
   /** The title of the table, displayed at the top of the component. */
   title: PropTypes.string,
-  /** An array of objects, each representing a column in the table. Each object must contain a title property, 
+  /** An array of objects, each representing a column in the table. Each object must contain a title property,
    * which is used to display the header for the column, and a field property, which is used to retrieve the data for the column from the data objects. */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       field: PropTypes.string.isRequired,
+      width: PropTypes.string,
+      sortable: PropTypes.bool,
     })
   ).isRequired,
   /** An array of data objects that are displayed in the table body. */
@@ -33,6 +35,21 @@ Table.propTypes = {
   header: PropTypes.string,
   /** A callback function that is triggered when the selected rows in the table are changed. */
   onChange: PropTypes.func,
+};
+
+Table.defaultProps = {
+  title: "",
+  columns: [
+    {
+      sortable: false,
+    },
+  ],
+  maxRowsToDisplay: 10,
+  enableToggleMode: true,
+  footer: "",
+  header: "",
+  onChange: null,
+  
 };
 
 function Table(props) {
