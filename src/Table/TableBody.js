@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { generateKey } from "./../util/utils";
-import TableStyles from "./Table.scss";
-import classNames from "classnames/bind";
 import TableData from "./TableData";
+import { TBody, TableRow, Input } from "./Table.styled";
 
-const styles = classNames.bind(TableStyles);
 const modes = ["SINGLE", "MULTIPLE"];
 
 TableBody.propTypes = {
@@ -97,24 +95,21 @@ function TableBody(props) {
   }
 
   return (
-    <tbody className={styles(selectionMode)}>
+    <TBody enableTableHover={selectionMode}>
       {Array.isArray(data) &&
         data.map((rowData, index) => {
           const getKey = convertKeyData(rowData);
-          const rowSelectedCls = selectedRowsKeys.includes(getKey)
-            ? "selected-row-highlight"
-            : "";
+          const selected = selectedRowsKeys.includes(getKey);
           return (
-            <tr
+            <TableRow
               key={getKey}
               onClick={() => handleClick(getKey, rowData)}
-              className={styles(rowSelectedCls)}
+              selected={selected}
             >
               {updatedMode === "SINGLE" && (
                 <td>
-                  <input
+                  <Input
                     type="radio"
-                    className="input-selection"
                     checked={selectedRowsKeys.includes(getKey)}
                     onChange={(e) => {}}
                   />
@@ -122,19 +117,18 @@ function TableBody(props) {
               )}
               {updatedMode === "MULTIPLE" && (
                 <td>
-                  <input
+                  <Input
                     type="checkbox"
-                    className="input-selection"
                     checked={selectedRowsKeys.includes(getKey)}
                     onChange={(e) => {}}
                   />
                 </td>
               )}
               {<TableData columns={columns} rowData={rowData} mode={mode} />}
-            </tr>
+            </TableRow>
           );
         })}
-    </tbody>
+    </TBody>
   );
 }
 

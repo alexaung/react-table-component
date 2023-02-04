@@ -6,6 +6,7 @@ import {
   ArrowUpCircle,
   ArrowUpDown,
 } from "./../assets/icons/svg_icons";
+import { TableHeaderCell} from "./Table.styled"
 
 TableHeader.propTypes = {
   columns: PropTypes.arrayOf(
@@ -53,8 +54,8 @@ function TableHeader(props) {
               <div style={{ display: "flex" }}>
                 <div>{column.title}</div>
                 {column.sortable ? (
-                  <div
-                    className={
+                  <TableHeaderCell
+                    sortDirection={
                       column.field === sort.column && sort.direction === "asc"
                         ? "ascending"
                         : column.field === sort.column &&
@@ -72,7 +73,7 @@ function TableHeader(props) {
                     ) : (
                       <ArrowUpDown />
                     )}
-                  </div>
+                  </TableHeaderCell>
                 ) : null}
               </div>
             </th>

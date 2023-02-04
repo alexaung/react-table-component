@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import TableStyles from "./Table.scss";
-import classNames from "classnames/bind";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
+import { TableTitle, TableWrapper, BaseTable } from "./Table.styled";
 
-const styles = classNames.bind(TableStyles);
 const ROW_HEIGHT = 100;
 
 Table.propTypes = {
   /** The title of the table, displayed at the top of the component. */
   title: PropTypes.string,
-  /** An array of objects representing the columns in the table. Each object must contain a title property for display in the header and a field property for retrieving data from the data objects. 
+  /** An array of objects representing the columns in the table. Each object must contain a title property for display in the header and a field property for retrieving data from the data objects.
    * Additionally, the object may contain a width property, which sets the width of the column and can be either a number with a unit of '%' or 'px', and a flex property, which sets the flexible width of the column.
    * The sortable property, if set to true, will enable sorting for that column. */
   columns: PropTypes.arrayOf(
@@ -32,15 +30,9 @@ Table.propTypes = {
   /** A boolean that determines whether the selection mode of the table can be changed by the user. */
   enableToggleMode: PropTypes.bool,
   /** A string or component to display at the bottom of the table. */
-  footer: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-  ]),
+  footer: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** A string or component to display at the top of the table. */
-  header: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-  ]),
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** A callback function that is triggered when the selected rows in the table are changed. */
   onChange: PropTypes.func,
 };
@@ -57,7 +49,6 @@ Table.defaultProps = {
   footer: "",
   header: "",
   onChange: null,
-  
 };
 
 function Table(props) {
@@ -111,9 +102,9 @@ function Table(props) {
   return (
     <div>
       {header ? header : null}
-      {title && <div className={styles("table-title")}>{title}</div>}
-      <div className={styles("table-wrapper")} style={{ maxHeight }}>
-        <table className={styles("base-table")}>
+      {title && <TableTitle>{title}</TableTitle>}
+      <TableWrapper style={{ maxHeight }}>
+        <BaseTable>
           {Array.isArray(columns) && (
             <TableHeader
               columns={columns}
@@ -131,8 +122,8 @@ function Table(props) {
               onChange={onChange}
             />
           )}
-        </table>
-      </div>
+        </BaseTable>
+      </TableWrapper>
       {footer ? footer : null}
     </div>
   );
