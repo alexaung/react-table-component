@@ -1,23 +1,16 @@
 import React from "react";
 import Table from "./Table";
 import { render, cleanup, fireEvent } from "@testing-library/react";
+import data from "./../data/contract.json";
 
 describe("<Table/>", () => {
   const columns = [
-    "Claim Number",
-    "Date of Admission",
-    "Date of Discharge",
-    "Clinic/Hospital",
+    { title: "Name", field: "name", sortable: true },
+    { title: "Mobile", field: "mobile", sortable: true },
+    { title: "Expiry", field: "expiry", sortable: true },
+    { title: "Penalty", field: "penalty", sortable: true },
   ];
-  const data = [
-    ["test-id", "12-03-2021", "26-03-2021", "PARKWAY EAST"],
-    ["CBGDC21000386-00", "13-03-2021", "25-03-2021", "RESTRUCTURED HOSPITAL"],
-    ["CBGDC21000386-00", "14-03-2021", "24-03-2021", "PARKWAY EAST"],
-    ["CBGDC21000386-00", "15-03-2021", "23-03-2021", "SUNWAY"],
-    ["CBGDC21000386-00", "16-03-2021", "22-03-2021", "KEPPAL"],
-    ["CBGDC21000386-00", "17-03-2021", "21-03-2021", "PARKWAY EAST"],
-    ["CBGDC21000386-00", "18-03-2021", "20-03-2021", "PARKWAY EAST"],
-  ];
+
   afterEach(cleanup);
 
   it("Should render basic component", () => {
@@ -28,17 +21,18 @@ describe("<Table/>", () => {
   });
 
   it("should invoke onChange callback", () => {
-    const onChange = jest.fn();
+    const handleChange = jest.fn();
     const { getByText } = render(
       <Table
         columns={columns}
         data={data}
         mode="single"
         title="test title"
-        onChange={onChange}
+        onChange={handleChange}
       />
     );
-    fireEvent.click(getByText("test-id"));
-    expect(onChange).toHaveBeenCalled();
+    /* The test will locate "Mavis Chen" in the table. If you alter your test data, kindly substitute it with an appropriate value. */
+    fireEvent.click(getByText("Mavis Chen"));
+    expect(handleChange).toHaveBeenCalled();
   });
 });

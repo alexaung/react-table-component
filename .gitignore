@@ -11,6 +11,9 @@
 # production
 /build
 
+# snapshort
+__snapshots__/
+
 # misc
 .DS_Store
 .env.local
