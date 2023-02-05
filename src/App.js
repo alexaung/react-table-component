@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Table from "./Table/Table";
-import data from "./data/operator.json";
+import data from "./data/contract.json";
 import { light, dark } from "./theme";
 import { AppContainer, Button } from "./App.styled";
 
@@ -13,10 +13,17 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  // const columns = [
+  //   { title: "Operator", field: "operator", sortable: true },
+  //   { title: "Headset Display", field: "headset_display", sortable: true },
+  //   { title: "3G Availability", field: "availability", sortable: true },
+  // ];
+
   const columns = [
-    { title: "Operator", field: "operator", sortable: true },
-    { title: "Headset Display", field: "headset_display", sortable: true },
-    { title: "3G Availability", field: "availability", sortable: true },
+    { title: "Name", field: "name", sortable: true },
+    { title: "Mobile", field: "mobile", sortable: true },
+    { title: "Expiry", field: "expiry", sortable: true },
+    { title: "Penalty", field: "penalty", sortable: true },
   ];
 
   return (

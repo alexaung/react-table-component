@@ -17,7 +17,7 @@ const TableWrapper = styled.div`
     box-shadow: ${({ theme }) => theme.tableBoxShadow};
   }
 
-  @media screen and (min-width: ${smwidth}) {
+  @media screen and (max-width: ${smwidth}) {
     overflow: auto;
     border-radius: 8px;
     box-shadow: ${({ theme }) => theme.tableBoxShadow};
@@ -43,7 +43,7 @@ const TableTitle = styled.h1`
     font-weight: 600;
   }
 
-  @media screen and (min-width: ${smwidth}) {
+  @media screen and (max-width: ${smwidth}) {
     margin-bottom: 10px;
     font-size: 20px;
     color: ${({ theme }) => theme.textPrimary};
@@ -126,7 +126,7 @@ const BaseTable = styled.table`
     }
   }
 
-  @media screen and (min-width: ${smwidth}) {
+  @media screen and (max-width: ${smwidth}) {
     display: table;
     width: 100%;
     border-collapse: collapse;
@@ -142,7 +142,7 @@ const BaseTable = styled.table`
         font-size: 16px;
         text-align: left;
         letter-spacing: 0px;
-        padding: 24px;
+        padding: 10px;
       }
     }
 
@@ -155,10 +155,11 @@ const BaseTable = styled.table`
 
       td {
         font-family: ${({ theme }) => theme.avenirBook};
+        color: ${({ theme }) => theme.textPrimary};
         font-size: 16px;
         text-align: left;
         letter-spacing: 0.1px;
-        padding: 24px;
+        padding: 10px;
       }
     }
   }

@@ -9,6 +9,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app",
     'storybook-addon-jsx',
+    "storybook-addon-styled-component-theme/dist/preset",
   ],
   "framework": "@storybook/react",
   "core": {

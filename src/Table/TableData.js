@@ -23,6 +23,7 @@ function TableData(props) {
   const [isMobile, setIsMobile] = useState(false);
 
   const hideSortFunction = useCallback(() => {
+    if(isMobile) {
     var columns = document.querySelectorAll("table th");
     const responsiveColumnCount =
       mode === "single" || mode === "multiple"
@@ -34,7 +35,8 @@ function TableData(props) {
         columns[i].style.display = "none";
       }
     }
-  }, [mode]);
+  }
+  }, [isMobile, mode]);
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 640);

@@ -1,94 +1,59 @@
 import React from "react";
 import { jsxDecorator } from "storybook-addon-jsx";
 import Table from "../Table";
+import data from "./../data/contract.json";
+// const columns = [
+//   {
+//     title: "Operator",
+//     field: "operator",
+//   },
+//   {
+//     title: "Headset Display",
+//     field: "headset_display",
+//   },
+//   {
+//     title: "3G Availability",
+//     field: "availability",
+//   },
+// ];
 
 const columns = [
-  {
-    title: "Operator",
-    field: "operator",
-  },
-  {
-    title: "Headset Display",
-    field: "headset_display",
-  },
-  {
-    title: "3G Availability",
-    field: "availability",
-  },
+  { title: "Name", field: "name", sortable: true },
+  { title: "Mobile", field: "mobile", sortable: true },
+  { title: "Expiry", field: "expiry", sortable: true },
+  { title: "Penalty", field: "penalty", sortable: true },
 ];
 
-const data = [
-  {
-    id: 1,
-    operator: "*Celcom Axiata (LTE)",
-    headset_display: "CELCOM / My Celcom / 502 19",
-    availability: "Yes",
-  },
-  {
-    id: 2,
-    operator: "*DiGi Telecom (LTE)",
-    headset_display: "DiGi 1800 / DiGi / MYMY18",
-    availability: "Yes",
-  },
-  {
-    id: 3,
-    operator: "Maxis (LTE)",
-    headset_display: "U Mobile / MYS 18 / MY 18",
-    availability: "Yes",
-  },
-  {
-    id: 4,
-    operator: "U Mobile (LTE)",
-    headset_display: "U Mobile / MYS 18 / MY 18",
-    availability: "Yes",
-  },
-];
-
-// function Footer() {
-//   return (
-//     <div>
-//       <span>Hi this is footer</span>
-//     </div>
-//   );
-// }
-
-const Footer = ({ text }) => <div><span>{text}</span></div>;
-const Header = ({ text }) => <div><span>{text}</span></div>;
-
-// function Header() {
-//   return (
-//     <div>
-//       <span>Hi this is header</span>
-//     </div>
-//   );
-// }
+const Footer = ({ text }) => (
+  <div>
+    <span>{text}</span>
+  </div>
+);
+const Header = ({ text }) => (
+  <div>
+    <span>{text}</span>
+  </div>
+);
 
 export default {
-  title: 'Components/Table',
+  title: "Components/Table",
   component: Table,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     //backgroundColor: { control: 'color' },
   },
   decorators: [jsxDecorator],
-
 };
 
 export const BasicTable = () => {
-  
   return (
     <div style={{ margin: "30px" }}>
-      <Table
-        title="Operator List"
-        columns={columns}
-        data={data}
-      />
+      <Table title="Operator List" columns={columns} data={data} />
     </div>
   );
 };
 
 export const SingleSelection = () => {
-  
   return (
     <div style={{ margin: "30px" }}>
       <Table
@@ -105,7 +70,6 @@ export const SingleSelection = () => {
 };
 
 export const MultipleSelection = () => {
-  
   return (
     <div style={{ margin: "30px" }}>
       <Table
@@ -122,7 +86,6 @@ export const MultipleSelection = () => {
 };
 
 export const LimitRows = () => {
-  
   return (
     <div style={{ margin: "30px" }}>
       <Table
@@ -138,36 +101,45 @@ export const LimitRows = () => {
   );
 };
 
-// export const WithFooter = () => {
-  
-//   return (
-//     <div style={{ margin: "30px" }}>
-//       <Table
-//         title="Operator List"
-//         columns={columns}
-//         data={data}
-//         footer={<><Footer text="My footer" /></>}
-//       />
-//     </div>
-//   );
-// };
-
-export const WithHeader = () => {
-  
+export const WithFooter = () => {
   return (
     <div style={{ margin: "30px" }}>
       <Table
-        header={<><Header text="My header" /></>}
+        title="Operator List"
         columns={columns}
         data={data}
-        footer={<><Footer text="My footer" /></>}
+        footer={
+          <>
+            <Footer text="My footer" />
+          </>
+        }
+      />
+    </div>
+  );
+};
+
+export const WithHeader = () => {
+  return (
+    <div style={{ margin: "30px" }}>
+      <Table
+        header={
+          <>
+            <Header text="My header" />
+          </>
+        }
+        columns={columns}
+        data={data}
+        footer={
+          <>
+            <Footer text="My footer" />
+          </>
+        }
       />
     </div>
   );
 };
 
 export const DisableToggle = () => {
-  
   return (
     <div style={{ margin: "30px" }}>
       <Table
@@ -185,14 +157,9 @@ export const DisableToggle = () => {
 };
 
 export const CompactView = () => {
-  
   return (
     <div style={{ margin: "30px", width: "320px" }}>
       <Table title="Test header" columns={columns} data={data} />
     </div>
   );
 };
-
-
-
-
