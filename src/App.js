@@ -3,7 +3,8 @@ import { ThemeProvider } from "styled-components";
 import Table from "./Table/Table";
 import data from "./data/contract.json";
 import { light, dark, ThemeSwitcher, GlobalStyles } from "./theme";
-import { AppContainer } from "./App.styled";
+import { AppContainer, ControlContainer, TableContainer } from "./App.styled";
+
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -27,35 +28,26 @@ function App() {
   ];
 
   return (
-    <ThemeProvider theme={currentTheme} style={{width: "100%"}}>
-      <GlobalStyles/>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyles />
       <AppContainer>
-        <div>
+        <ControlContainer>
           <ThemeSwitcher
             checked={theme === "light"}
             onChange={toggleTheme}
             label={theme === "light" ? "Light" : "Dark"}
           />
-        </div>
-        <div
-          style={{
-            display: "block",
-            alignItems: "center",
-            justifyContent: "center",
-            margin: "5px",
-          }}
-        >
-          <div style={{ marginTop: "60px", marginBottom: "50px" }}>
-            <Table
-              columns={columns}
-              data={data}
-              mode="multiple"
-              onChange={(data) => {
-                console.log("Selected data", data);
-              }}
-            />
-          </div>
-        </div>
+        </ControlContainer>
+        <TableContainer>
+          <Table
+            columns={columns}
+            data={data}
+            mode="multiple"
+            onChange={(data) => {
+              console.log("Selected data", data);
+            }}
+          />
+        </TableContainer>
       </AppContainer>
     </ThemeProvider>
   );
