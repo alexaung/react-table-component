@@ -16,5 +16,5 @@ export const TableContainer = styled.div`
   flex: 0 0 100%;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  padding: 20px;
 `;
