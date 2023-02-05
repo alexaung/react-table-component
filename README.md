@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Getting Started with Table Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Table Component is a UI component that displays data in a tabular format. It is designed to be highly customizable and flexible to meet the needs of different projects and users.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- Supports multiple columns
+- Supports sorting of columns
+- Ability to set column width
+- Responsive design for mobile devices
+- Easy to use API with customizable options
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To install the Table Component, use the following command:
 
-### `yarn test`
+### npm
+`npm install my-table-component`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###
+`yarn add my-table-component`
 
-### `yarn build`
+## Usage
+`import Table from 'my-table-component';`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`const data = [  { name: 'John', age: 30, city: 'New York' },  { name: 'Jane', age: 25, city: 'London' },  { name: 'Jim', age: 35, city: 'Paris' },];`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`const columns = [  { title: 'Name', dataIndex: 'name' },  { title: 'Age', dataIndex: 'age' },  { title: 'City', dataIndex: 'city' },];`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`<Table data={data} columns={columns} />`
 
-### `yarn eject`
+## Limitations
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Currently, the Table Component has the following limitations:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Does not support pagination
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Conclusion
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The Table Component is a highly customizable and flexible solution for displaying data in a tabular format. Whether you need to display a small amount of data or a large amount, the Table Component has you covered. Try it out today and see how it can improve your project!
 
-## Learn More
+## Authors
+Alex Aung Myo Oo - Initial work - [Author's Github](https://www.example.com)
+See also the list of contributors who participated in this project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [Name of License] License - see the LICENSE.md file for details.
