@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const AppContainer = styled.div`
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.background};
   font-size: large;
   font-weight: bold;
@@ -17,8 +17,8 @@ const Button = styled.button`
   border-radius: 3px;
 
   /* Color the border and text with theme.main */
-  color: ${(theme) => theme.textPrimary};
-  border: 2px solid ${(theme) => theme.textPrimary};
+  color: ${(theme) => theme.primary};
+  border: 2px solid ${(theme) => theme.primary};
 
   float: right;
   /*transition: all 0.5s;*/

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Table from "./Table/Table";
 import data from "./data/contract.json";
-import { light, dark } from "./theme";
-import { AppContainer, Button } from "./App.styled";
+import { light, dark, ThemeSwitcher } from "./theme";
+import { AppContainer } from "./App.styled";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -29,9 +29,13 @@ function App() {
   return (
     <ThemeProvider theme={currentTheme}>
       <AppContainer>
-        <Button onClick={toggleTheme}>
-          Switch to {theme === "light" ? "dark" : "light"} theme
-        </Button>
+        <div>
+          <ThemeSwitcher
+            checked={theme === "light"}
+            onChange={toggleTheme}
+            label={theme === "light" ? "Light" : "Dark"}
+          />
+        </div>
         <div
           style={{
             display: "block",

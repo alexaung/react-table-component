@@ -2,33 +2,35 @@
 import { createGlobalStyle } from "styled-components";
 
 export const light = {
-  background: "white",
-  textPrimary: "black",
-  textSecondary: "royalblue",
-  tableHeaderColor: "#f7f7f6",
+  background: "#ffffff",
+  primary: "#ffffff",
+  secondary: "#f0edfe",
+  text: "#000000",
+  tableHeaderColor: "#000000",
+  tableRowHoverColor: "#f0edfe",
   selectedRowColor: "#f0edfe",
   tableRowBorderBottomColor: "#e1e1e1",
-  inputSelectionColor: "#8173cf",
-  tableRowHoverColor: "Black",
-  tableBoxShadow:
-    "4px 4px 8px rgba(0, 0, 0, 0.2), 6px 6px 20px rgba(0, 0, 0, 0.19)",
+  inputColor: "#8173cf",
   avenirHeavy: "Avenir Heavy",
   avenirBook: "Avenir Book",
+  tableBoxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+  dark: "#000000"
 };
 
+
 export const dark = {
-  background: "black",
-  textPrimary: "white",
-  textSecondary: "grey",
-  tableHeaderColor: "#333",
-  selectedRowColor: "#0A2A5E",
+  background: "#000000",
+  primary: "#000000",
+  secondary: "#8173cf",
+  text: "#ffffff",
+  tableHeaderColor: "#ffffff",
+  tableRowHoverColor: "#8173cf",
+  selectedRowColor: "#8173cf",
   tableRowBorderBottomColor: "#e1e1e1",
-  inputSelectionColor: "white",
-  tableRowHoverColor: "White",
-  tableBoxShadow:
-    "4px 4px 8px rgba(255, 255, 255, 0.2), 6px 6px 20px rgba(255, 255, 255, 0.19)",
+  inputColor: "#f0edfe",
   avenirHeavy: "Avenir Heavy",
   avenirBook: "Avenir Book",
+  tableBoxShadow: "0 4px 6px rgba(255,255,255,0.1)",
 };
 
 export const GlobalStyles = createGlobalStyle`
