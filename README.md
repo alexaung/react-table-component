@@ -11,17 +11,48 @@ The Table Component is a UI component that displays data in a tabular format. It
 - Responsive design for mobile devices
 - Easy to use API with customizable options
 
-## Installation
+## Running the project
 
-To install the Table Component, use the following command:
+To run the Table Component project, use the following steps:
 
-`npm install my-table-component`
+1. Clone the repository to your local machine using the following command:
 
-###
-`yarn add my-table-component`
+`git clone https://github.com/alexaung/table-component.git`
+
+2. Navigate to the project directory:
+
+`cd table-component`
+
+3. Install the dependencies:
+
+`npm install`
+
+`yarn install`
+
+4. Start the development server:
+
+`npm start`
+
+`yarn start`
+
+5. Visit http://localhost:3000 in your browser to see the Table Component in action.
+
+## Testing
+To run the tests for the Table Component, use the following command:
+
+npm run test
+
+yarn test
+
+## Storybook
+To run the Storybook for the Table Component, use the following command:
+
+npm run storybook
+
+yarn storybook
 
 ## Usage
-`import Table from 'my-table-component';`
+`import Table from 'table-component';`
 
 `const data = [
   {
