@@ -15,7 +15,6 @@ The Table Component is a UI component that displays data in a tabular format. It
 
 To install the Table Component, use the following command:
 
-### npm
 `npm install my-table-component`
 
 ###
@@ -24,9 +23,50 @@ To install the Table Component, use the following command:
 ## Usage
 `import Table from 'my-table-component';`
 
-`const data = [  { name: 'John', age: 30, city: 'New York' },  { name: 'Jane', age: 25, city: 'London' },  { name: 'Jim', age: 35, city: 'Paris' },];`
+`const data = [
+  {
+    "id": 1,
+    "name": "Mavis Chen",
+    "mobile": "9988 7654",
+    "expiry": "Dec 2022",
+    "penalty": "$600"
+  },
+  {
+    "id": 2,
+    "name": "Rodney Artichoke",
+    "mobile": "9988 7676",
+    "expiry": "Nov 2022",
+    "penalty": "$300"
+  },
+  {
+    "id": 3,
+    "name": "Valentino Morose",
+    "mobile": "8900 7654",
+    "expiry": "Dec 2022",
+    "penalty": "$600"
+  },
+  {
+    "id": 4,
+    "name": "Alex Chen",
+    "mobile": "9988 7654",
+    "expiry": "Dec 2022",
+    "penalty": "$600"
+  },
+  {
+    "id": 5,
+    "name": "Eric Widget",
+    "mobile": "9809 7654",
+    "expiry": "Dec 2022",
+    "penalty": "$600"
+  }
+];`
 
-`const columns = [  { title: 'Name', dataIndex: 'name' },  { title: 'Age', dataIndex: 'age' },  { title: 'City', dataIndex: 'city' },];`
+`const columns = [
+    { title: "Name", field: "name", sortable: true },
+    { title: "Mobile", field: "mobile", sortable: true },
+    { title: "Expiry", field: "expiry", sortable: true },
+    { title: "Penalty", field: "penalty", sortable: true },
+  ];`
 
 `<Table data={data} columns={columns} />`
 
