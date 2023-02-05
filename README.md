@@ -112,7 +112,7 @@ Currently, the Table Component has the following limitations:
 The Table Component is a highly customizable and flexible solution for displaying data in a tabular format. Whether you need to display a small amount of data or a large amount, the Table Component has you covered. Try it out today and see how it can improve your project!
 
 ## Authors
-Alex Aung Myo Oo - Initial work - [Author's Github](https://www.example.com)
+Alex Aung Myo Oo - Initial work - [Author's Github](https://github.com/alexaung)
 See also the list of contributors who participated in this project.
 
 ## License
