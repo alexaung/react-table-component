@@ -39,7 +39,7 @@ const Slider = styled.span`
   border-radius: 34px;
   
   ${props => props.checked && `
-    background-color: ${props.theme.dark};
+    background-color: ${props.theme.slider};
   `}
 
   &:before {

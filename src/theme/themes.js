@@ -6,7 +6,7 @@ export const light = {
   primary: "#ffffff",
   secondary: "#f0edfe",
   text: "#000000",
-  tableHeaderColor: "#000000",
+  tableHeaderColor: "#B1B1B1",
   tableRowHoverColor: "#f0edfe",
   selectedRowColor: "#f0edfe",
   tableRowBorderBottomColor: "#e1e1e1",
@@ -14,7 +14,7 @@ export const light = {
   avenirHeavy: "Avenir Heavy",
   avenirBook: "Avenir Book",
   tableBoxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-  dark: "#000000"
+  slider: "#8173cf"
 };
 
 
@@ -23,7 +23,7 @@ export const dark = {
   primary: "#000000",
   secondary: "#8173cf",
   text: "#ffffff",
-  tableHeaderColor: "#ffffff",
+  tableHeaderColor: "#808080",
   tableRowHoverColor: "#8173cf",
   selectedRowColor: "#8173cf",
   tableRowBorderBottomColor: "#e1e1e1",
@@ -31,6 +31,7 @@ export const dark = {
   avenirHeavy: "Avenir Heavy",
   avenirBook: "Avenir Book",
   tableBoxShadow: "0 4px 6px rgba(255,255,255,0.1)",
+  slider: "#ffffff"
 };
 
 export const GlobalStyles = createGlobalStyle`
