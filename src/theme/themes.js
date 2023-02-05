@@ -18,7 +18,7 @@ export const light = {
     avenirHeavy: "Avenir Heavy",
     avenirBook: "Avenir Book",
   },
-  tableBoxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+  tableBoxShadow: "0 4px 6px rgba(0,0,0,0.3)",
 };
 
 export const dark = {
@@ -38,7 +38,7 @@ export const dark = {
     avenirHeavy: "Avenir Heavy",
     avenirBook: "Avenir Book",
   },
-  tableBoxShadow: "0 4px 6px rgba(255,255,255,0.1)",
+  tableBoxShadow: "0 4px 6px rgba(255,255,255,0.3)",
 };
 
 export const GlobalStyles = createGlobalStyle`
