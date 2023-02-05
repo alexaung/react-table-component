@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Table from "./Table/Table";
 import data from "./data/contract.json";
-import { light, dark, ThemeSwitcher } from "./theme";
+import { light, dark, ThemeSwitcher, GlobalStyles } from "./theme";
 import { AppContainer } from "./App.styled";
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
   ];
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={currentTheme} style={{width: "100%"}}>
+      <GlobalStyles/>
       <AppContainer>
         <div>
           <ThemeSwitcher

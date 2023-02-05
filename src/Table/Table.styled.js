@@ -28,7 +28,7 @@ const TableTitle = styled.h1`
   @media screen and (min-width: ${xlwidth}) {
     margin-bottom: 10px;
     font-size: 20px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
     line-height: 20px;
     letter-spacing: normal;
     font-weight: 600;
@@ -37,7 +37,7 @@ const TableTitle = styled.h1`
   @media screen and (min-width: ${mdwidth}) {
     margin-bottom: 10px;
     font-size: 20px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
     line-height: 20px;
     letter-spacing: normal;
     font-weight: 600;
@@ -46,7 +46,7 @@ const TableTitle = styled.h1`
   @media screen and (max-width: ${smwidth}) {
     margin-bottom: 10px;
     font-size: 20px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
     line-height: 20px;
     letter-spacing: normal;
     font-weight: 600;
@@ -62,12 +62,12 @@ const BaseTable = styled.table`
     letter-spacing: 0;
 
     thead tr {
-      background-color: ${({ theme }) => theme.tableHeaderColor};
+      background-color: ${({ theme }) => theme.colors.tableHeader};
       cursor: pointer;
 
       th {
-        font-family: ${({ theme }) => theme.avenirHeavy};
-        color: ${({ theme }) => theme.primary};
+        font-family: ${({ theme }) => theme.fonts.avenirHeavy};
+        color: ${({ theme }) => theme.colors.primary};
         font-size: 20px;
         text-align: left;
         letter-spacing: 0px;
@@ -78,12 +78,12 @@ const BaseTable = styled.table`
     tbody tr {
       &:not(:last-child) {
         border-bottom: 1px solid
-          ${({ theme }) => theme.tableRowBorderBottomColor};
+          ${({ theme }) => theme.colors.tableRowBorderBottom};
       }
 
       td {
-        font-family: ${({ theme }) => theme.avenirBook};
-        color: ${({ theme }) => theme.text};
+        font-family: ${({ theme }) => theme.fonts.avenirBook};
+        color: ${({ theme }) => theme.colors.text};
         font-size: 20px;
         text-align: left;
         letter-spacing: 0.1px;
@@ -100,12 +100,12 @@ const BaseTable = styled.table`
     letter-spacing: 0;
 
     thead tr {
-      background-color: ${({ theme }) => theme.tableHeaderColor};
+      background-color: ${({ theme }) => theme.colors.tableHeader};
       cursor: pointer;
 
       th {
-        font-family: ${({ theme }) => theme.avenirHeavy};
-        color: ${({ theme }) => theme.primary};
+        font-family: ${({ theme }) => theme.fonts.avenirHeavy};
+        color: ${({ theme }) => theme.colors.primary};
         font-size: 18px;
         text-align: left;
         letter-spacing: 0px;
@@ -116,12 +116,12 @@ const BaseTable = styled.table`
     tbody tr {
       &:not(:last-child) {
         border-bottom: 1px solid
-          ${({ theme }) => theme.tableRowBorderBottomColor};
+          ${({ theme }) => theme.colors.tableRowBorderBottom};
       }
 
       td {
-        font-family: ${({ theme }) => theme.avenirBook};
-        color: ${({ theme }) => theme.text};
+        font-family: ${({ theme }) => theme.fonts.avenirBook};
+        color: ${({ theme }) => theme.colors.text};
         font-size: 18px;
         text-align: left;
         letter-spacing: 0.1px;
@@ -138,12 +138,12 @@ const BaseTable = styled.table`
     letter-spacing: 0;
 
     thead tr {
-      background-color: ${({ theme }) => theme.primary};
+      background-color: ${({ theme }) => theme.colors.primary};
       cursor: pointer;
 
       th {
-        font-family: ${({ theme }) => theme.avenirHeavy};
-        color: ${({ theme }) => theme.text};
+        font-family: ${({ theme }) => theme.fonts.avenirHeavy};
+        color: ${({ theme }) => theme.colors.text};
         font-size: 16px;
         text-align: left;
         letter-spacing: 0px;
@@ -155,12 +155,12 @@ const BaseTable = styled.table`
       &:not(:last-child) {
         margin-bottom: 8px;
         border-bottom: 1px solid
-          ${({ theme }) => theme.tableRowBorderBottomColor};
+          ${({ theme }) => theme.colors.tableRowBorderBottom};
       }
 
       td {
-        font-family: ${({ theme }) => theme.avenirBook};
-        color: ${({ theme }) => theme.text};
+        font-family: ${({ theme }) => theme.fonts.avenirBook};
+        color: ${({ theme }) => theme.colors.text};
         font-size: 16px;
         text-align: left;
         letter-spacing: 0.1px;
@@ -173,24 +173,20 @@ const BaseTable = styled.table`
 const TBody = styled.tbody`
   tr:hover {
     background-color: ${({ theme, enableTableHover }) =>
-      enableTableHover === "enable-table-hover" ? theme.secondary : ""};
+      enableTableHover === "enable-table-hover" ? theme.colors.secondary : ""};
     cursor: pointer;
   }
 `;
 
-// const SelectedRowHighlight = styled.tr`
-//   background-color: ${({ theme }) => theme.selectedRowColor};
-// `;
-
 const TableRow = styled.tr`
   background-color: ${({ theme, selected }) =>
-    selected ? theme.selectedRowColor : ""};
+    selected ? theme.colors.selectedRow : ""};
 `;
 
 const Input = styled.input`
   cursor: pointer;
   padding: 10px;
-  accent-color: ${({ theme }) => theme.inputColor};
+  accent-color: ${({ theme }) => theme.colors.input};
   width: 24px;
   height: 24px;
 `;
@@ -198,7 +194,7 @@ const Input = styled.input`
 const TableHeaderCell = styled.div`
   color: ${({ theme, sortDirection }) =>
     sortDirection === "ascending" || sortDirection === "descending"
-      ? theme.inputColor
+      ? theme.colors.input
       : ""};
   display: inline-flex;
   align-self: center;
